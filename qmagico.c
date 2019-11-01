@@ -171,23 +171,24 @@ int **tamanhoSeis(int n){
 }
 
 int main(){
+    
+    printf("Informe o tamanho do quadrado mágico que você quer gerar:\n");
+    int n;
+    scanf("%d", &n);
 
-    for (int n = 3; n <= 6; n++){
-        if(n % 2 == 1){
-            int **quadradoMagico = tamanhoImpar(n);
-            printQuadradoMagico(quadradoMagico, n);
-            desalocarQuadrado(quadradoMagico, n);
+    if(n % 2 == 1){
+        int **quadradoMagico = tamanhoImpar(n);
+        printQuadradoMagico(quadradoMagico, n);
+        desalocarQuadrado(quadradoMagico, n);
 
-        } else if (n == 4){
-            int **quadradoMagico = tamanhoQuatro(n);
-            printQuadradoMagico(quadradoMagico, n);
-            desalocarQuadrado(quadradoMagico, n);
-        } else if (n == 6){
-            int **quadradoMagico = tamanhoSeis(n);
-            printQuadradoMagico(quadradoMagico, n);
-            desalocarQuadrado(quadradoMagico, n);
-        }
-
+    } else if (n % 4 == 0){
+        int **quadradoMagico = tamanhoQuatro(n);
+        printQuadradoMagico(quadradoMagico, n);
+        desalocarQuadrado(quadradoMagico, n);
+    } else if (n % 4 == 2){
+        int **quadradoMagico = tamanhoSeis(n);
+        printQuadradoMagico(quadradoMagico, n);
+        desalocarQuadrado(quadradoMagico, n);
     }
 
     return 0;
